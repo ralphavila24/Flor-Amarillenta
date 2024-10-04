@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flor Amarilla</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #ffebcc, #ffab91, #ff7043);
+            font-family: 'Arial', sans-serif;
+        }
+
+        svg {
+            width: 600px;
+            height: 600px;
+        }
+
+        /* Animación de los pétalos */
+        .petal {
+            opacity: 0;
+            animation: fadeInScale 1s ease-in-out forwards;
+        }
+
+        /* Distribución circular de los pétalos */
+        .petal:nth-child(1) { transform: rotate(0deg) translate(0, -160); animation-delay: 0.2s; }
+        .petal:nth-child(2) { transform: rotate(45deg) translate(0, -160); animation-delay: 0.4s; }
+        .petal:nth-child(3) { transform: rotate(90deg) translate(0, -160); animation-delay: 0.6s; }
+        .petal:nth-child(4) { transform: rotate(135deg) translate(0, -160); animation-delay: 0.8s; }
+        .petal:nth-child(5) { transform: rotate(180deg) translate(0, -160); animation-delay: 1s; }
+        .petal:nth-child(6) { transform: rotate(225deg) translate(0, -160); animation-delay: 1.2s; }
+        .petal:nth-child(7) { transform: rotate(270deg) translate(0, -160); animation-delay: 1.4s; }
+        .petal:nth-child(8) { transform: rotate(315deg) translate(0, -160); animation-delay: 1.6s; }
+
+        /* Animación del centro */
+        .center {
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards 2s;
+        }
+
+        /* Animación del texto */
+        .text {
+            opacity: 0;
+            font-size: 40px;
+            animation: textAppear 2s ease-in-out forwards 3s;
+            font-family: 'Great Vibes', cursive;
+            fill: url(#textGradient);
+        }
+
+        /* Sombras en los pétalos y centro */
+        .petal {
+            filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.2));
+        }
+        .center {
+            filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.4));
+        }
+
+        /* Animaciones clave */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.5) translate(0, -160);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translate(0, -160);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes textAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+        <!-- Pétalos de la flor con animaciones -->
+        <g transform="translate(250,250)">
+            <ellipse class="petal" rx="60" ry="150" fill="url(#petalGradient1)" />
+            <ellipse class="petal" rx="60" ry="150" fill="url(#petalGradient2)" transform="rotate(45)" />
+            <ellipse class="petal" rx="60" ry="150" fill="url(#petalGradient1)" transform="rotate(90)" />
+            <ellipse class="petal" rx="60" ry="150" fill="url(#petalGradient2)" transform="rotate(135)" />
+            <ellipse class="petal" rx="60" ry="150" fill="url(#petalGradient1)" transform="rotate(180)" />
+            <ellipse class="petal" rx="60" ry="150" fill="url(#petalGradient2)" transform="rotate(225)" />
+            <ellipse class="petal" rx="60" ry="150" fill="url(#petalGradient1)" transform="rotate(270)" />
+            <ellipse class="petal" rx="60" ry="150" fill="url(#petalGradient2)" transform="rotate(315)" />
+        </g>
+
+        <!-- Centro de la flor -->
+        <circle class="center" cx="250" cy="250" r="90" fill="#FFD700" stroke="#FF7043" stroke-width="6" />
+
+        <!-- Texto "Te Amo" -->
+        <text class="text" x="250" y="270" text-anchor="middle" font-weight="bold" style="text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);">Te amo</text>
+
+        <!-- Degradado de pétalos -->
+        <defs>
+            <linearGradient id="petalGradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFA500;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FF8C00;stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="petalGradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:#FFB74D;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FF7043;stop-opacity:1" />
+            </linearGradient>
+
+            <!-- Degradado para el texto -->
+            <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#FF7043;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#D84315;stop-opacity:1" />
+            </linearGradient>
+        </defs>
+    </svg>
+</body>
+</html>
